@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AlpineJS</title>
+    </head>
+
+    <body>
+        <div x-data="{ count: 0 }">
+            <button type="button" @click="count++">+</button>
+            <button type="button" @click="count--">-</button>
+            <span x-text="count"></span>
+        </div>
+
+        <script>
+            let root = document.querySelector('[x-data]');
+            let data = getInitialData();
+
+            function getInitialData() {
+                let dataString = root.getAttribute('x-data');
+
+                return eval(`(${dataString})`);
+            }
+        </script>
+    </body>
+
+</html>

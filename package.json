@@ -1,0 +1,16 @@
+{
+  "name": "building-alpinejs",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Md. Sadid Hasan Rakib",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  }
+}
