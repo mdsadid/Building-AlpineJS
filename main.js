@@ -20,6 +20,20 @@ function observe(data) {
 	});
 }
 
+registerListeners();
+
+function registerListeners() {
+	walkDOM(root, el => {
+		if (el.hasAttribute('@click')) {
+			let expression = el.getAttribute('@click');
+
+			el.addEventListener('click', () => {
+				eval(`(data.${expression})`);
+			});
+		}
+	});
+}
+
 refreshDOM(root);
 
 function refreshDOM(root) {
