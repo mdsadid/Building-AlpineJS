@@ -18,10 +18,34 @@
             let root = document.querySelector('[x-data]');
             let data = getInitialData();
 
+            refreshDOM(root);
+
             function getInitialData() {
                 let dataString = root.getAttribute('x-data');
 
                 return eval(`(${dataString})`);
+            }
+
+            function refreshDOM(root) {
+                walkDOM(root, el => {
+                    if (el.hasAttribute('x-text')) {
+                        let expression = el.getAttribute('x-text');
+
+                        el.innerText = eval(`(data.${expression})`);
+                    }
+                });
+            }
+
+            function walkDOM(el, callback) {
+                callback(el);
+
+                el = el.firstElementChild;
+
+                while (el) {
+                    walkDOM(el, callback);
+
+                    el = el.nextElementSibling;
+                }
             }
         </script>
     </body>
