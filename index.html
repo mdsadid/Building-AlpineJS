@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>AlpineJS</title>
-	</head>
+  <body class="min-h-screen flex items-center justify-center bg-gray-800 text-white">
+    <div x-data="{ count: 0 }" class="space-y-5 text-center">
+      <button
+        type="button"
+        @click="count++"
+        class="px-5 py-2.5 rounded-xl font-semibold bg-green-500 shadow-md hover:shadow-lg hover:bg-green-700 transition-all duration-200 cursor-pointer"
+      >
+        Increment
+      </button>
+      <button
+        type="button"
+        @click="count--"
+        class="px-5 py-2.5 ml-2 rounded-xl font-semibold bg-red-500 shadow-md hover:shadow-lg hover:bg-red-700 transition-all duration-200 cursor-pointer"
+      >
+        Decrement
+      </button>
+      <p x-text="count" class="text-5xl"></p>
+      <p x-show="count > 2" class="text-xl text-yellow-300">I am over 2</p>
+      <p x-show="count < 0" class="text-xl text-red-500">I am under 0</p>
+    </div>
 
-	<body>
-		<div x-data="{ count: 0 }">
-			<button type="button" @click="count++">+</button>
-			<button type="button" @click="count--">-</button>
-			<span x-text="count"></span>
-		</div>
-
-		<script src="./main.js"></script>
-	</body>
-
+    <script src="./alpine.js"></script>
+  </body>
 </html>
